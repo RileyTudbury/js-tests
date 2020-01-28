@@ -7,68 +7,52 @@
 // output: 7
 
 function daysPosition(day, offset) {
-    switch (day, offset) {
-        case ("Sunday", true): {
+    switch (day) {
+        case "sunday":
+            if (!offset) {
+                return 1;
+            }
             return 7;
             break;
-        }
-        case ("Sunday", false): {
+        case "monday":
+            if (!offset) {
+                return 2;
+            }
             return 1;
             break;
-        }
-        case ("Monday", true): {
-            return 1;
-            break;
-        }
-        case ("Monday", false): {
+        case "tuesday":
+            if (!offset) {
+                return 3
+            }
             return 2;
             break;
-        }
-        case ("Tuesday", true): {
-            return 2;
-            break;
-        }
-        case ("Tuesday", false): {
+        case "wednesday":
+            if (!offset) {
+                return 4
+            }
             return 3;
             break;
-        }
-        case ("Wednesday", true): {
-            return 3;
-            break;
-        }
-        case ("Wednesday", false): {
+        case "thursday":
+            if (!offset) {
+                return 5
+            }
             return 4;
             break;
-        }
-        case ("Thursday", true): {
-            return 4;
-            break;
-        }
-        case ("Thursday", false): {
+        case "friday":
+            if (!offset) {
+                return 6
+            }
             return 5;
             break;
-        }
-        case ("Friday", true): {
-            return 5;
-            break;
-        }
-        case ("Friday", false): {
+        case "saturday":
+            if (!offset) {
+                return 7
+            }
             return 6;
             break;
-        }
-        case ("Saturday", true): {
-            return 6;
-            break;
-        }
-        case ("Saturday", false): {
-            return 7;
-            break;
-        }
-        default: {
+        default:
             return "That's not a day of the week"
-        }
-
-
+            break;
     }
 }
 
@@ -114,5 +98,23 @@ function golfScore(score, par) {
 let count = 0
 
 function cardCounter(card) {
-
+    switch (card) {
+        case "2", "3", "4", "5", "6": {
+            count++
+            break;
+        }
+        case "7", "8", "9": {
+            break;
+        }
+        case "10", "J", "Q", "K", "A": {
+            count--;
+            break;
+        }
+    }
+    if (count > 0) {
+        return (`${count} Bet`);
+    }
+    else if (count <= 0) {
+        return (`${count} Hold`);
+    }
 }
